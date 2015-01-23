@@ -5,7 +5,7 @@ import org.xml.sax.helpers.DefaultHandler;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
-public class Start {
+public class SAXParserTest {
 
     public static void main(String[] argv) {
         try {
