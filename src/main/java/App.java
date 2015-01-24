@@ -30,6 +30,7 @@ import jaxb.Zawartosc;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
 
@@ -42,22 +43,27 @@ public class App {
         try {
 
             File inFile = new File(RESOURCES_DIR + "in.xml");
+            File outputFile = new File(RESOURCES_DIR + "out.xml");
 
             JAXBContext jaxbContext = null;
 
             jaxbContext = JAXBContext.newInstance(Pliki.class);
 
             Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+            Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
             Pliki pliki = (Pliki) jaxbUnmarshaller.unmarshal(inFile);
 
+            int i = 0;
             for (Zawartosc zawartosc : pliki.getZawartosc()) {
 
                 File includedFile = new File(RESOURCES_DIR + zawartosc.getPlik());
                 Zawartosc includedZawartosc = (Zawartosc) jaxbUnmarshaller.unmarshal(includedFile);
 
-                zawartosc = includedZawartosc;
-            }
+                pliki.getZawartosc().set(i, includedZawartosc);
 
+                i++;
+            }
+            jaxbMarshaller.marshal(pliki, outputFile);
             System.out.println(pliki);
         } catch (JAXBException e) {
             e.printStackTrace();
