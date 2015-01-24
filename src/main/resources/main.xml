@@ -1,6 +1,0 @@
-<xml>
-    <include filename="other.xml"/>
-    jakis text
-    <abcd>inny text</abcd>
-    <include filename="other.xml"/>
-</xml>

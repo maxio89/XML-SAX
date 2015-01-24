@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<company>
-    <staff a="attribValue">
-        <firstname>rr</firstname>
-        <lastname>ggg</lastname>
-        <nickname lang="english">example nick</nickname>
-    </staff>
-</company>
