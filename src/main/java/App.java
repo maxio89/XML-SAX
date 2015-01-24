@@ -42,8 +42,8 @@ public class App {
     {
         try {
 
-            File inFile = new File(RESOURCES_DIR + "in.xml");
-            File outputFile = new File(RESOURCES_DIR + "out.xml");
+            File inFile = new File(argv[0]);
+            File outputFile = new File(argv[1]);
 
             JAXBContext jaxbContext = null;
 
